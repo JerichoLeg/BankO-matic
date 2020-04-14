@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:\\LocalRepo\\git\\BankOmatic\\model.tflearn"
+all_model_checkpoint_paths: "C:\\LocalRepo\\git\\BankOmatic\\model.tflearn"

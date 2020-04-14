@@ -1,0 +1,43 @@
+{"intents":[
+        {"tag": "greeting",
+		 "patterns": ["Hello","Hi","Greetings","How are you","nice","wow","Good day"],
+		 "responses": ["Hello!","Greetings!"],
+		 "context_set": ""
+		},
+		{"tag": "time",
+		 "patterns": ["Opening","Closing","Time","hour","minute"],
+		 "responses": ["Opening and closing times depend on the branch"],
+		 "context_set": ""
+		},
+		{"tag": "name",
+		 "patterns": ["Who are you","What is your name","What should I call you"],
+		 "responses": ["I am chatbot","My name is chatbot"],
+		 "context_set": ""
+		},
+		{"tag": "rate",
+		 "patterns": ["interest","percent","rate","loan"],
+		 "responses": ["15% is our standard interest rate","Interest rate for loans is 15%"],
+		 "context_set": ""
+		},
+		{"tag": "register",
+		 "patterns": ["web","online","create account","creation","account","create"],
+		 "responses": ["Once you have an account in the bank, you can register an account online"],
+		 "context_set": ""
+		},
+		{"tag": "Create Account",
+		 "patterns": ["sign","register","create account","creation","account","create","new"],
+		 "responses": ["You can create an account in any of our branches"],
+		 "context_set": ""
+		},
+		{"tag": "Location",
+		 "patterns": ["where","location","located","find","near","locate"],
+		 "responses": ["Visit our location finding feature for more information"],
+		 "context_set": ""
+		},
+		{"tag": "requirements",
+		 "patterns": ["starting amount","starting cash","start","requirements","need","how","open","savings","debit","required"],
+		 "responses": ["Proceed to our branches to create an account. You would need 2 valid ID's, a copy of your birth certificate, and you need to pay 100 pesos to open an account."],
+		 "context_set": ""
+		}
+	]
+}
