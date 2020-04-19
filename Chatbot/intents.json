@@ -25,7 +25,7 @@
 		 "context_set": ""
 		},
 		{"tag": "Create Account",
-		 "patterns": ["sign","register","create account","creation","account","create","new"],
+		 "patterns": ["sign","register","create account","creation","account","create","new","opening","open"],
 		 "responses": ["You can create an account in any of our branches"],
 		 "context_set": ""
 		},

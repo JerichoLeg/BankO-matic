@@ -71,6 +71,7 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net)
 
 try:
+    x
     model.load("model.tflearn")
 except:
     model = tflearn.DNN(net)
@@ -91,7 +92,7 @@ def bag_of_words(s,words):
 def chat():
     print("Start talking with the bot!(type quit to stop)")
     while True:
-        inp = input("You: ")
+        inp = input("\n\nYou: ")
         if inp.lower() == "quit":
             break
         results = model.predict([bag_of_words(inp, words)])
