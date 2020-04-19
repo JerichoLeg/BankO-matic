@@ -1,7 +1,5 @@
 import folium
 import sqlite3
-import pandas as pd
-
 
 with sqlite3.connect('Branches.db') as conn:
     cursor = conn.cursor()
