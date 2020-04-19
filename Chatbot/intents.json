@@ -5,12 +5,12 @@
 		 "context_set": ""
 		},
 		{"tag": "time",
-		 "patterns": ["Opening","Closing","Time","hour","minute"],
+		 "patterns": ["Opening","Closing","Time","hour","minute","time","what time", "what hour","what time do you open"],
 		 "responses": ["Opening and closing times depend on the branch"],
 		 "context_set": ""
 		},
 		{"tag": "name",
-		 "patterns": ["Who are you","What is your name","What should I call you"],
+		 "patterns": ["Who are you","What is your name","What should I call you","name","what are you"],
 		 "responses": ["I am chatbot","My name is chatbot"],
 		 "context_set": ""
 		},
@@ -20,7 +20,7 @@
 		 "context_set": ""
 		},
 		{"tag": "register",
-		 "patterns": ["web","online","create account","creation","account","create"],
+		 "patterns": ["web","online","create account","creation","account","create","make"],
 		 "responses": ["Once you have an account in the bank, you can register an account online"],
 		 "context_set": ""
 		},
@@ -30,7 +30,7 @@
 		 "context_set": ""
 		},
 		{"tag": "Location",
-		 "patterns": ["where","location","located","find","near","locate"],
+		 "patterns": ["where","location","located","find","near","locate","what is your location","locate"],
 		 "responses": ["Visit our location finding feature for more information"],
 		 "context_set": ""
 		},

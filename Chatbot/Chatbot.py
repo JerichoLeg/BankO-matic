@@ -1,7 +1,8 @@
 import nltk
+import os
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
-
+clear = lambda: os.system('cls')
 import numpy
 import tflearn
 import tensorflow
@@ -9,11 +10,11 @@ import random
 import json
 import pickle
 
-with open("intents.json") as file:
+with open("C:\LocalRepo\git\BankOMatic\Chatbot\intents.json") as file:
     data = json.load(file)
 
 try:
-    with open("data.pickle","rb") as f:
+    with open("C:\LocalRepo\git\BankOMatic\Chatbot\data.pickle","rb") as f:
         words, labels, training, output = pickle.load(f)  
 except:
     words = []
@@ -57,7 +58,7 @@ except:
 
     training = numpy.array(training)
     output = numpy.array(output)
-    with open("data.pickle","wb") as f:
+    with open("C:\LocalRepo\git\BankOMatic\Chatbot\data.pickle","wb") as f:
         pickle.dump((words, labels, training, output),f)
 
 tensorflow.reset_default_graph()
@@ -71,12 +72,11 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net)
 
 try:
-    x
-    model.load("model.tflearn")
+    model.load("C:\LocalRepo\git\BankOMatic\Chatbot\model.tflearn")
 except:
     model = tflearn.DNN(net)
     model.fit(training,output,n_epoch=1000,batch_size=8,show_metric=True)
-    model.save("model.tflearn")
+    model.save("C:\LocalRepo\git\BankOMatic\Chatbot\model.tflearn")
 def bag_of_words(s,words):
     bag=[0 for _ in range(len(words))]
     s_words = nltk.word_tokenize(s)
@@ -89,18 +89,27 @@ def bag_of_words(s,words):
     
     return numpy.array(bag)
 
+try:
+    clear()
+except:
+    clear = lambda: os.system('clear')
+
 def chat():
-    print("Start talking with the bot!(type quit to stop)")
+    print("You can now start talking with the chatbot!\nType quit to stop")
     while True:
-        inp = input("\n\nYou: ")
+        inp = input("\nInput: ")
         if inp.lower() == "quit":
+            clear()
             break
-        results = model.predict([bag_of_words(inp, words)])
+        results = model.predict([bag_of_words(inp, words)])[0]
         results_index = numpy.argmax(results)
         tag = labels[results_index]
-        for tg in data["intents"]:
-            if tg['tag'] == tag:
-                responses = tg['responses']
-        print(random.choice(responses))
-
+        
+        if results[results_index] >0.8:
+            for tg in data["intents"]:
+                if tg['tag'] == tag:
+                    responses = tg['responses']
+            print(random.choice(responses))
+        else:
+            print("I did not understand. Please try to ask another question.") 
 chat()

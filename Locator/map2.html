@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_64e2b62f2db04514bb307d564d54a0a4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_64e2b62f2db04514bb307d564d54a0a4" ></div>
+        
+</body>
+<script>    
+    
+            var map_64e2b62f2db04514bb307d564d54a0a4 = L.map(
+                "map_64e2b62f2db04514bb307d564d54a0a4",
+                {
+                    center: [14.589896, 120.982292],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_436287df28cc4228a20de67a7d73386e = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_64e2b62f2db04514bb307d564d54a0a4);
+        
+    
+            var marker_a1b39f5e433c492283db899d360b8161 = L.marker(
+                [14.5906216, 120.9799696],
+                {}
+            ).addTo(map_64e2b62f2db04514bb307d564d54a0a4);
+        
+    
+            var icon_de3529b5585c411bb6aff5ea12eff0b0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a1b39f5e433c492283db899d360b8161.setIcon(icon_de3529b5585c411bb6aff5ea12eff0b0);
+        
+    
+        var popup_b9e4559387f1427d83b2378cb10bc897 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_632c24caa7674c6ea156cc125f81e254 = $(`<div id="html_632c24caa7674c6ea156cc125f81e254" style="width: 100.0%; height: 100.0%;">Your location:  Manila</div>`)[0];
+            popup_b9e4559387f1427d83b2378cb10bc897.setContent(html_632c24caa7674c6ea156cc125f81e254);
+        
+
+        marker_a1b39f5e433c492283db899d360b8161.bindPopup(popup_b9e4559387f1427d83b2378cb10bc897)
+        ;
+
+        
+    
+    
+            marker_a1b39f5e433c492283db899d360b8161.bindTooltip(
+                `<div>
+                     Click for more info
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0937f9b4a10f4d7ba99aecc8fb42cfec = L.marker(
+                [14.5929, 120.9733],
+                {}
+            ).addTo(map_64e2b62f2db04514bb307d564d54a0a4);
+        
+    
+            var icon_dd1f63bba89649a4b2c3a4c77e8603b0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0937f9b4a10f4d7ba99aecc8fb42cfec.setIcon(icon_dd1f63bba89649a4b2c3a4c77e8603b0);
+        
+    
+        var popup_74edd6091b7540148f0ed08157e1e7e6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f9cfd78c2fc445038e2216578c532167 = $(`<div id="html_f9cfd78c2fc445038e2216578c532167" style="width: 100.0%; height: 100.0%;"><strong>Intramuros Branch</strong><br>Open time: 9 A.M. - 4 P.M.</br> [14.5929,120.9733]</div>`)[0];
+            popup_74edd6091b7540148f0ed08157e1e7e6.setContent(html_f9cfd78c2fc445038e2216578c532167);
+        
+
+        marker_0937f9b4a10f4d7ba99aecc8fb42cfec.bindPopup(popup_74edd6091b7540148f0ed08157e1e7e6)
+        ;
+
+        
+    
+    
+            marker_0937f9b4a10f4d7ba99aecc8fb42cfec.bindTooltip(
+                `<div>
+                     Intramuros Branch
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ca17d1d0d8cb4c989314436d35df157a = L.marker(
+                [14.5994, 120.9835],
+                {}
+            ).addTo(map_64e2b62f2db04514bb307d564d54a0a4);
+        
+    
+            var icon_97c892832a0f4e6099903768a458ab6a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ca17d1d0d8cb4c989314436d35df157a.setIcon(icon_97c892832a0f4e6099903768a458ab6a);
+        
+    
+        var popup_cca5ffaca5da4c0788a8f631ed85db41 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c5401a52abb24089bfbe61b8ee67e6ed = $(`<div id="html_c5401a52abb24089bfbe61b8ee67e6ed" style="width: 100.0%; height: 100.0%;"><strong>Sta. Cruz- Quiapo  Branch</strong><br>Open time: 9 A.M. - 4 P.M.</br> [14.5994,120.9835]</div>`)[0];
+            popup_cca5ffaca5da4c0788a8f631ed85db41.setContent(html_c5401a52abb24089bfbe61b8ee67e6ed);
+        
+
+        marker_ca17d1d0d8cb4c989314436d35df157a.bindPopup(popup_cca5ffaca5da4c0788a8f631ed85db41)
+        ;
+
+        
+    
+    
+            marker_ca17d1d0d8cb4c989314436d35df157a.bindTooltip(
+                `<div>
+                     Sta. Cruz- Quiapo  Branch
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0d2465cc235843d7a21dac9a79552b6b = L.marker(
+                [14.5807, 120.9807],
+                {}
+            ).addTo(map_64e2b62f2db04514bb307d564d54a0a4);
+        
+    
+            var icon_84a24aed8ec04ca6ad2a2c11d8111ffd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0d2465cc235843d7a21dac9a79552b6b.setIcon(icon_84a24aed8ec04ca6ad2a2c11d8111ffd);
+        
+    
+        var popup_5c0624aa2a664179ba8873ae0ea09185 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d49858cc83a54795908f7de16f0e7af4 = $(`<div id="html_d49858cc83a54795908f7de16f0e7af4" style="width: 100.0%; height: 100.0%;"><strong>Ermita Branch</strong><br>Open time: 9 A.M. - 4 P.M.</br> [14.5807,120.9807]</div>`)[0];
+            popup_5c0624aa2a664179ba8873ae0ea09185.setContent(html_d49858cc83a54795908f7de16f0e7af4);
+        
+
+        marker_0d2465cc235843d7a21dac9a79552b6b.bindPopup(popup_5c0624aa2a664179ba8873ae0ea09185)
+        ;
+
+        
+    
+    
+            marker_0d2465cc235843d7a21dac9a79552b6b.bindTooltip(
+                `<div>
+                     Ermita Branch
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_50f9e94b9d6d4effbaebea6597e7fc22 = L.marker(
+                [14.5773, 120.9908],
+                {}
+            ).addTo(map_64e2b62f2db04514bb307d564d54a0a4);
+        
+    
+            var icon_e75582c96fa849709bfc1e7e6a90ae50 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_50f9e94b9d6d4effbaebea6597e7fc22.setIcon(icon_e75582c96fa849709bfc1e7e6a90ae50);
+        
+    
+        var popup_a1f8916adc044dfda6abbc1c441a051e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_23a78ff4bdbf46fba0c9dd90be03a3cc = $(`<div id="html_23a78ff4bdbf46fba0c9dd90be03a3cc" style="width: 100.0%; height: 100.0%;"><strong>Paco - San Andres  Branch</strong><br>Open time: 9 A.M. - 4 P.M.</br> [14.5773,120.9908]</div>`)[0];
+            popup_a1f8916adc044dfda6abbc1c441a051e.setContent(html_23a78ff4bdbf46fba0c9dd90be03a3cc);
+        
+
+        marker_50f9e94b9d6d4effbaebea6597e7fc22.bindPopup(popup_a1f8916adc044dfda6abbc1c441a051e)
+        ;
+
+        
+    
+    
+            marker_50f9e94b9d6d4effbaebea6597e7fc22.bindTooltip(
+                `<div>
+                     Paco - San Andres  Branch
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6363b0ee0c98438cbcf2aee9c9fb4bdc = L.marker(
+                [14.6064, 120.9682],
+                {}
+            ).addTo(map_64e2b62f2db04514bb307d564d54a0a4);
+        
+    
+            var icon_44265e90df2f443481f1a1683d0287e3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6363b0ee0c98438cbcf2aee9c9fb4bdc.setIcon(icon_44265e90df2f443481f1a1683d0287e3);
+        
+    
+        var popup_9b7cbfb6071842cf96a9e528327108d5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_048ca2db02544420944f522485a2cb2b = $(`<div id="html_048ca2db02544420944f522485a2cb2b" style="width: 100.0%; height: 100.0%;"><strong>Binondo  - San Nicolas Branch</strong><br>Open time: 9 A.M. - 4 P.M.</br> [14.6064,120.9682]</div>`)[0];
+            popup_9b7cbfb6071842cf96a9e528327108d5.setContent(html_048ca2db02544420944f522485a2cb2b);
+        
+
+        marker_6363b0ee0c98438cbcf2aee9c9fb4bdc.bindPopup(popup_9b7cbfb6071842cf96a9e528327108d5)
+        ;
+
+        
+    
+    
+            marker_6363b0ee0c98438cbcf2aee9c9fb4bdc.bindTooltip(
+                `<div>
+                     Binondo  - San Nicolas Branch
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
