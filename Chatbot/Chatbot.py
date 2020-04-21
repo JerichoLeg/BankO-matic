@@ -1,8 +1,6 @@
 import nltk
 import os
-from nltk.stem.lancaster import LancasterStemmer
-stemmer = LancasterStemmer()
-clear = lambda: os.system('cls')
+from nltk.stem.lancaster import LancasterStemmer    
 import numpy
 import tflearn
 import tensorflow
@@ -11,10 +9,16 @@ import json
 import pickle
 
 
-with open("intents.json") as file:
-    data = json.load(file)
+stemmer = LancasterStemmer()
 
-    
+#Clear function
+if os.name == 'nt':
+    clear = lambda: os.system('cls')
+else:
+    clear = lambda: os.system('clear')
+
+data = json.load(open("intents.json")) #Open intents.json file
+
 try:
     with open("data.pickle","rb") as f:
         words, labels, training, output = pickle.load(f)  
@@ -23,19 +27,21 @@ except:
     labels = []
     docs_x = []
     docs_y = []
-
-    for intent in data["intents"]:
-        for pattern in intent["patterns"]:
-            wrds = nltk.word_tokenize(pattern)
-            words.extend(wrds)
+    
+    for intent in data["intents"]: #loop through intents
+        for pattern in intent["patterns"]: #loop through patterns
+            wrds = nltk.word_tokenize(pattern) #break text into individiual words
+            words.extend(wrds) #wrds list is added to words
             docs_x.append(wrds)
             docs_y.append(intent["tag"])
             
-        if intent["tag"] not in labels:
+        if intent["tag"] not in labels:#add label if label in json file is not in label list
             labels.append(intent["tag"])
 
-    words = [stemmer.stem(w.lower()) for w in words if w != "?"]
-    words = sorted(list(set(words)))
+    words = [stemmer.stem(w.lower()) for w in words if w != "?"] #get root word
+    words = sorted(list(set(words))) #set makes sure that there are no duplicate words
+                                     #list makes words back into list
+                                     #sorted sorts the list
     labels = sorted(labels)
 
     training = []
@@ -91,10 +97,7 @@ def bag_of_words(s,words):
     
     return numpy.array(bag)
 
-try:
-    clear()
-except:
-    clear = lambda: os.system('clear')
+clear()
 
 def chat():
     print("You can now start talking with the chatbot!\nType quit to stop")

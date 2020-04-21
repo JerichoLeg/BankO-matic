@@ -5,7 +5,7 @@
 		 "context_set": ""
 		},
 		{"tag": "time",
-		 "patterns": ["Opening","Closing","Time","hour","minute","time","what time", "what hour","what time do you open"],
+		 "patterns": ["Opening","Closing","Time","hour","minute","time","what time", "what hour","what time do you open","when are you open","when"],
 		 "responses": ["Opening and closing times depend on the branch"],
 		 "context_set": ""
 		},
