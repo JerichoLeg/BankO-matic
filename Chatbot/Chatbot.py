@@ -8,7 +8,6 @@ import random
 import json
 import pickle
 
-
 stemmer = LancasterStemmer()
 
 #Clear function
@@ -17,78 +16,93 @@ if os.name == 'nt':
 else:
     clear = lambda: os.system('clear')
 
-data = json.load(open("intents.json")) #Open intents.json file
 
-#start of pre processing
-try:
-    with open("data.pickle","rb") as f:
-        words, labels, training, output = pickle.load(f) #try to import data if there is a file available
-except:
-    words = []
-    labels = []
-    docs_x = []
-    docs_y = []
-    
-    for intent in data["intents"]: #loop through intents
-        for pattern in intent["patterns"]: #loop through patterns
-            wrds = nltk.word_tokenize(pattern) #break text into individiual words
-            words.extend(wrds) #wrds list is added to words
-            docs_x.append(wrds)
-            docs_y.append(intent["tag"])
+#start of data preprocessing
+class preProcessing():
+    def __init__(self):
+        self.data = json.load(open("intents.json")) #Open intents.json file
+        try:
+            with open("data.pickle","rb") as f:
+                self.words, self.labels, self.training, self.output = pickle.load(f) #try to import data if there is a file available
+        except:
+            self.words = []
+            self.labels = []
+            docs_x = []
+            docs_y = []
             
-        if intent["tag"] not in labels:#add label if label in json file is not in label list
-            labels.append(intent["tag"])
+            for intent in self.data["intents"]: #loop through intents
+                for pattern in intent["patterns"]: #loop through patterns
+                    wrds = nltk.word_tokenize(pattern) #break text into individiual words
+                    self.words.extend(wrds) #wrds list is added to words
+                    docs_x.append(wrds)
+                    docs_y.append(intent["tag"])
+                    
+                if intent["tag"] not in self.labels:#add label if label in json file is not in label list
+                    self.labels.append(intent["tag"])
 
-    words = [stemmer.stem(w.lower()) for w in words if w != "?"] #get root word, does not get question mark
-    words = sorted(list(set(words))) #set makes sure that there are no duplicate words
-                                     #list makes words back into list
-                                     #sorted sorts the list
-    labels = sorted(labels)
+            self.words = [stemmer.stem(w.lower()) for w in self.words if w != "?"] #get root word, does not get question mark
+            self.words = sorted(list(set(self.words))) #set makes sure that there are no duplicate words
+                                             #list makes words back into list
+                                             #sorted sorts the list
+            self.labels = sorted(self.labels)
+            self.training = []
+            self.output = []
+            out_empty = [0 for _ in range(len(self.labels))]
 
-    training = []
-    output = []
-    out_empty = [0 for _ in range(len(labels))]
+            for x, doc in enumerate(docs_x):
+                bag = []
+                wrds = [stemmer.stem(w) for w in doc]
+                
+                for w in self.words:
+                    if w in wrds:
+                        bag.append(1)
+                    else:
+                        bag.append(0)
 
-    for x, doc in enumerate(docs_x):
-        bag = []
-        wrds = [stemmer.stem(w) for w in doc]
-        
-        for w in words:
-            if w in wrds:
-                bag.append(1)
-            else:
-                bag.append(0)
+                output_row = out_empty[:] #create a copy of out_empty
+                output_row[self.labels.index(docs_y[x])] = 1 #look through labels, set value to 1 if located in labels
 
-        output_row = out_empty[:] #create a copy of out_empty
-        output_row[labels.index(docs_y[x])] = 1 #look through labels, set value to 1 if located in labels
+                self.training.append(bag) #append bag to training list
+                self.output.append(output_row)
 
-        training.append(bag) #append bag to training list
-        output.append(output_row)
+            self.training = numpy.array(self.training) #turn into numpy array
+            self.output = numpy.array(self.output) #turn into numpy array
+            with open("data.pickle","wb") as f:
+                pickle.dump((self.words, self.labels, self.training, self.output),f) #write all data into a pickle file
+    
+    def getTraining(self):
+        return self.training
+    def getWords(self):
+        return self.words
+    def getLabels(self):
+        return self.labels
+    def getOutput(self):
+        return self.output
+    def getData(self):
+        return self.data
+#end of data preprocessing
 
-    training = numpy.array(training) #turn into numpy array
-    output = numpy.array(output) #turn into numpy array
-    with open("data.pickle","wb") as f:
-        pickle.dump((words, labels, training, output),f) #write all data into a pickle file
+class createModel():
+    def __init__(self,training, output):
+        tf.reset_default_graph()
+        net = tflearn.input_data(shape=[None, len(training[0])]) #Find input shape for model
+        net = tflearn.fully_connected(net, 8) #8 neurons for hidden layer
+        net = tflearn.fully_connected(net, 8) #another 8 neurons for hidden layer
+        net = tflearn.fully_connected(net, len(output[0]), activation = "softmax") #output layer, get probabilities for each output
+        net = tflearn.regression(net)
 
-#end of preprocessing
+        self.model = tflearn.DNN(net) #create model for training
 
-tf.reset_default_graph()
-
-net = tflearn.input_data(shape=[None, len(training[0])]) #Find input shape for model
-net = tflearn.fully_connected(net, 8) #8 neurons for hidden layer
-net = tflearn.fully_connected(net, 8) #another 8 neurons for hidden layer
-net = tflearn.fully_connected(net, len(output[0]), activation = "softmax") #output layer, get probabilities for each output
-net = tflearn.regression(net)
-
-model = tflearn.DNN(net) #create model for training
-
-try:
-    model.load("model.tflearn") #load model if there is a file available (so that there is no need for retraining)
-except:
-    model = tflearn.DNN(net)
-    model.fit(training,output,n_epoch=2000,batch_size=8,show_metric=True) #2000 iterations for learning
-    model.save("model.tflearn") #save model for later use
-
+        try:
+            self.model.load("model.tflearn") #load model if there is a file available (so that there is no need for retraining)
+        except:
+            self.model = tflearn.DNN(net)
+            self.model.fit(training,output,n_epoch=2000,batch_size=8,show_metric=True) #2000 iterations for learning
+            self.model.save("model.tflearn") #save model for later use
+    
+    def getModel(self):
+        return self.model
+    
 def bag_of_words(s,words):
     bag=[0 for _ in range(len(words))] #blank bag of words list
     s_words = nltk.word_tokenize(s) #list of tokenized words
@@ -102,6 +116,8 @@ def bag_of_words(s,words):
     return numpy.array(bag) #return a numpy array from bag
 
 def chat():
+    process = preProcessing()
+    model = createModel(process.getTraining(),process.getOutput())
     clear() #clear screen
     print("You can now talk with the chatbot!\nType exit to stop")
     while True:
@@ -109,15 +125,15 @@ def chat():
         if inp.lower() == "exit":
             clear()
             break
-        results = model.predict([bag_of_words(inp, words)])[0] #generates probability from input for each of the tags
+        results = model.getModel().predict([bag_of_words(inp, process.getWords())])[0] #generates probability from input for each of the tags
         results_index = numpy.argmax(results) #finds the index of greatest value in the list
-        tag = labels[results_index] #returns tag from the index given before
+        tag = process.getLabels()[results_index] #returns tag from the index given before
         
         if results[results_index] >0.8:
-            for tg in data["intents"]:
+            for tg in process.getData()["intents"]:
                 if tg['tag'] == tag:
                     responses = tg['responses'] #get responses from tag
             print(random.choice(responses)) #display a random response from list
         else:
             print("I did not understand. Please try to ask another question.") #asks the user to ask another question if probability is less than 80% 
-chat()
+#chat()
