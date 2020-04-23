@@ -1,9 +1,0 @@
-<RCC>
-  <qresource prefix="images">
-    <file>iconfinder_Search_858732.png</file>
-    <file>icons8-close-window-96.png</file>
-    <file>Logo.png</file>
-    <file>BG.jpg</file>
-  </qresource>
-  <qresource prefix="html"/>
-</RCC>
