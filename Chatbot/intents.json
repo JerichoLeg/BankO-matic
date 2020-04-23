@@ -1,7 +1,7 @@
 {"intents":[
         {"tag": "greeting",
 		 "patterns": ["Hello","Hi","Greetings","How are you","nice","wow","Good day"],
-		 "responses": ["Hello!","Greetings!"]
+		 "responses": ["Hello!","Greetings!","Hello there!"]
 		},
 		{"tag": "time",
 		 "patterns": ["Opening","Closing","Time","hour","minute","time","what time", "what hour","what time do you open","when are you open","when"],

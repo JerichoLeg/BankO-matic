@@ -21,4 +21,7 @@ def create():
         pass
     map1.save('map.html') #save map
 
-#create()
+"""
+#Sample:
+create() #creates map based on available data
+"""

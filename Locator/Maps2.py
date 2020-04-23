@@ -85,6 +85,9 @@ def createMap(name,long,lat,dist,num):
             break
     map1.save('map2.html') #save map
 
-#mp = startLocation(input("\nEnter Location(Type exit to stop)\nInput:"))
-#if mp.getQuitVal() == 0:
-#    createMap(mp.getName(),mp.getLong(),mp.getLat(),mp.getDist(),mp.getNum())
+"""
+#Sample:
+mp = startLocation(input("\nEnter Location(Type exit to stop)\nInput:")) #initiate
+if mp.getQuitVal() == 0: #check if the user wanted to exit
+    createMap(mp.getName(),mp.getLong(),mp.getLat(),mp.getDist(),mp.getNum()) #pass values to create map function
+"""

@@ -115,25 +115,33 @@ def bag_of_words(s,words):
     
     return numpy.array(bag) #return a numpy array from bag
 
-def chat():
-    process = preProcessing()
-    model = createModel(process.getTraining(),process.getOutput())
-    clear() #clear screen
-    print("You can now talk with the chatbot!\nType exit to stop")
-    while True:
-        inp = input("\nInput: ")
-        if inp.lower() == "exit":
-            clear()
-            break
-        results = model.getModel().predict([bag_of_words(inp, process.getWords())])[0] #generates probability from input for each of the tags
+class botChat():
+    def __init__(self):
+        self.process = preProcessing()
+        self.model = createModel(self.process.getTraining(),self.process.getOutput())
+        clear() #clear screen
+    
+    def chat(self,inp):
+        results = self.model.getModel().predict([bag_of_words(inp, self.process.getWords())])[0] #generates probability from input for each of the tags
         results_index = numpy.argmax(results) #finds the index of greatest value in the list
-        tag = process.getLabels()[results_index] #returns tag from the index given before
+        tag = self.process.getLabels()[results_index] #returns tag from the index given before
         
         if results[results_index] >0.8:
-            for tg in process.getData()["intents"]:
+            for tg in self.process.getData()["intents"]:
                 if tg['tag'] == tag:
                     responses = tg['responses'] #get responses from tag
-            print(random.choice(responses)) #display a random response from list
+            return(random.choice(responses)) #display a random response from list
         else:
-            print("I did not understand. Please try to ask another question.") #asks the user to ask another question if probability is less than 80% 
-#chat()
+            return("I did not understand. Please try to ask another question.") #asks the user to ask another question if probability is less than 80% 
+
+"""
+#Sample:
+start = botChat()
+print("You can now talk with the chatbot!\nType exit to stop")
+while True:
+    inp = input("\nInput: ")
+    if inp.lower() == "exit":
+        clear()
+        break
+    print(start.chat(inp))
+"""
