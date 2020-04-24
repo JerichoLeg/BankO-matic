@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Menu(object):
-    def setupM(self, Menu):
+    def setupUi(self, Menu):
         Menu.setObjectName("Menu")
         Menu.resize(540, 360)
         Menu.setMinimumSize(QtCore.QSize(540, 360))
@@ -77,13 +77,13 @@ class Ui_Menu(object):
         font.setPointSize(16)
         self.atm.setFont(font)
         self.atm.setObjectName("atm")
-        self.pushButton_3 = QtWidgets.QPushButton(Menu)
-        self.pushButton_3.setGeometry(QtCore.QRect(30, 250, 221, 51))
+        self.chatbot = QtWidgets.QPushButton(Menu)
+        self.chatbot.setGeometry(QtCore.QRect(30, 250, 221, 51))
         font = QtGui.QFont()
         font.setFamily("Akrobat")
         font.setPointSize(16)
-        self.pushButton_3.setFont(font)
-        self.pushButton_3.setObjectName("pushButton_3")
+        self.chatbot.setFont(font)
+        self.chatbot.setObjectName("chatbot")
         self.label = QtWidgets.QLabel(Menu)
         self.label.setGeometry(QtCore.QRect(40, 40, 201, 51))
         font = QtGui.QFont()
@@ -122,12 +122,12 @@ class Ui_Menu(object):
 
     def retranslateUi(self, Menu):
         _translate = QtCore.QCoreApplication.translate
-        Menu.setWindowTitle(_translate("Menu", "Menu"))
+        Menu.setWindowTitle(_translate("Menu", "Dialog"))
         self.toolButton.setText(_translate("Menu", "..."))
         self.toolButton_2.setText(_translate("Menu", "..."))
         self.brnch.setText(_translate("Menu", "Branch Locator"))
         self.atm.setText(_translate("Menu", "ATM Locator"))
-        self.pushButton_3.setText(_translate("Menu", "Chatbot"))
+        self.chatbot.setText(_translate("Menu", "Chatbot"))
         self.label.setText(_translate("Menu", "MENU"))
         self.toolButton_3.setText(_translate("Menu", "..."))
         self.toolButton_4.setText(_translate("Menu", "..."))
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     Menu = QtWidgets.QDialog()
     ui = Ui_Menu()
-    ui.setupM(Menu)
+    ui.setupUi(Menu)
     Menu.show()
     sys.exit(app.exec_())
 
