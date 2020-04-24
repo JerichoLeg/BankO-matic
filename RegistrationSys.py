@@ -1,4 +1,7 @@
 import sqlite3
+import login
+
+
 with sqlite3.connect("Registration.db") as db:
     cursor = db.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS user(userID INTEGER PRIMARY KEY, username VARCHAR(20) NOT NULL,
