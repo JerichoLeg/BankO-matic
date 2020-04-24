@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Menu(object):
-    def setupUi(self, Menu):
+    def setupM(self, Menu):
         Menu.setObjectName("Menu")
         Menu.resize(540, 360)
         Menu.setMinimumSize(QtCore.QSize(540, 360))
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     Menu = QtWidgets.QDialog()
     ui = Ui_Menu()
-    ui.setupUi(Menu)
+    ui.setupM(Menu)
     Menu.show()
     sys.exit(app.exec_())
 
