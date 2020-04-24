@@ -156,8 +156,10 @@ class Ui_Login(object):
 
         self.retranslateUi(Login)
         self.loginbutton1.clicked.connect(self.menu)
+        self.loginbutton1.clicked.connect(Login.close)
         self.toolButton.clicked.connect(Login.close)
         self.regbutton.clicked.connect(self.regwin)
+        self.regbutton.clicked.connect(Login.close)
         QtCore.QMetaObject.connectSlotsByName(Login)
 
     def retranslateUi(self, Login):
