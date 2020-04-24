@@ -4,7 +4,7 @@ import sqlite3
         while True:
             username = input("Username: ")
             password = input("Password: ")
-            with sqlite3.connect("accounts.db") as db:
+            with sqlite3.connect("Registration.db") as db:
                 cursor = db.cursor()
             find_user =("SELECT * FROM user WHERE username = ? AND password = ?")
             cursor.execute(find_user,[(username),(password)])
@@ -22,6 +22,6 @@ import sqlite3
                 #THis part papalitan natin ng GUI so maybe mababago na dito part
                 if again.lower() == 'n':
                     print("Good day")
-                    time.sleep(1)
+                   # time.sleep(1)
                 break
 login()
