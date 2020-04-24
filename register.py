@@ -167,6 +167,8 @@ class Ui_Register(object):
         self.retranslateUi(Register)
         self.signup.clicked.connect(self.loginwin)
         self.cancel.clicked.connect(self.loginwin)
+        self.signup.clicked.connect(Register.close)
+        self.cancel.clicked.connect(Register.close)
         self.toolButton.clicked.connect(Register.close)
         QtCore.QMetaObject.connectSlotsByName(Register)
 
