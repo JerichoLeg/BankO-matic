@@ -83,7 +83,7 @@ def createMap(name,long,lat,dist,num):
             pass
         if i == 5:
             break
-    map1.save('map2.html') #save map
+    map1.save('BranchMap2.html') #save map
 
 """
 #Sample:
