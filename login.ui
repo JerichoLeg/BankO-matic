@@ -87,7 +87,7 @@ border-radius:10px
      <x>30</x>
      <y>20</y>
      <width>271</width>
-     <height>281</height>
+     <height>291</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -144,7 +144,7 @@ border-radius:10px
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>230</y>
+      <y>220</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -239,6 +239,28 @@ border-radius:10px
     </property>
     <property name="text">
      <string>Password :</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>260</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Akrobat</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

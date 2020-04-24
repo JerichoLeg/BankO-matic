@@ -148,7 +148,7 @@ border-radius:10px
     <string>ATM Locator</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="chatbot">
    <property name="geometry">
     <rect>
      <x>30</x>
