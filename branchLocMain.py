@@ -8,9 +8,22 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from branchLocOp1 import Ui_Window1
+from branchLocOp2 import Ui_Window2
 
 class Ui_MainWindow(object):
+    def openWindow1(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_Window1()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openWindow2(self):
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_Window2()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+        
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(540, 360)
@@ -99,10 +112,12 @@ class Ui_MainWindow(object):
         self.pushButton_2.setGeometry(QtCore.QRect(130, 240, 291, 31))
         self.pushButton_2.setMouseTracking(True)
         self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_2.clicked.connect(self.openWindow2)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(130, 190, 291, 31))
         self.pushButton.setMouseTracking(True)
         self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(self.openWindow1)
         self.label.raise_()
         self.closeIcon.raise_()
         self.displayText.raise_()
@@ -120,12 +135,12 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Branch Locator"))
         self.closeIcon.setText(_translate("MainWindow", "..."))
         self.displayText.setText(_translate("MainWindow", "Branch Locator"))
         self.commandLinkButton.setText(_translate("MainWindow", "Back to Main Menu"))
-        self.pushButton_2.setText(_translate("MainWindow", "Find the nearest ATM locations"))
-        self.pushButton.setText(_translate("MainWindow", "View all ATM locations in the City of Manila"))
+        self.pushButton_2.setText(_translate("MainWindow", "Find all nearest branch locations"))
+        self.pushButton.setText(_translate("MainWindow", "View all branch locations in the City of Manila"))
 import res_rc
 
 
