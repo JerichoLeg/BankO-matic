@@ -9,7 +9,7 @@ BankOmatic is a banking bot project built using artificial algorithms that analy
 A conda environment with python version 3.6 is needed to run these commands: <br/>
 
 install the following packages:
-```ruby
+```
 $ pip install nltk 
 $ pip install numpy
 $ pip install tflearn 
