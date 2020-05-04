@@ -15,20 +15,20 @@ class Ui_Menu(object):
         self.ui=Ui_Chatbot()
         self.ui.setupUi(self.window)
         self.window.show()
-        self.Menu.close
+        self.Menu.close()
 
     def branchl(self):
         self.window = QtWidgets.QMainWindow()
         self.ui=Ui_BranchL()
         self.ui.setupUi(self.window)
         self.window.show()
-        self.Menu.close
+        self.Menu.close()
     def atml(self):
         self.window = QtWidgets.QMainWindow()
         self.ui=Ui_atmL()
         self.ui.setupUi(self.window)
         self.window.show()
-        self.Menu.close
+        self.Menu.close()
       
     def setupM(self, Menu):
         self.Menu=Menu
