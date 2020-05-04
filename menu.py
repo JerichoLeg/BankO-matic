@@ -7,19 +7,41 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from branchLocMain import*
+from chatbot import *
 class Ui_Menu(object):
+    def chatb(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui=Ui_Chatbot()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.Menu.close
+
+    def branchl(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui=Ui_BranchL()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.Menu.close
+    def atml(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui=Ui_atmL()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.Menu.close
+      
     def setupM(self, Menu):
+        self.Menu=Menu
         Menu.setObjectName("Menu")
         Menu.resize(540, 360)
         Menu.setMinimumSize(QtCore.QSize(540, 360))
         Menu.setMaximumSize(QtCore.QSize(540, 360))
         font = QtGui.QFont()
-        font.setFamily("Akrobat")
+        font.setFamily("Calibri Light")
         font.setPointSize(16)
         Menu.setFont(font)
         Menu.setStyleSheet("*{\n"
-"font-family: Akrobat;\n"
+"font-family: Calibri Light;\n"
 "}\n"
 "QDialog{\n"
 "border-image:url(:/images/bgm1.png)\n"
@@ -66,28 +88,28 @@ class Ui_Menu(object):
         self.brnch = QtWidgets.QPushButton(Menu)
         self.brnch.setGeometry(QtCore.QRect(30, 110, 221, 51))
         font = QtGui.QFont()
-        font.setFamily("Akrobat")
+        font.setFamily("Calibri Light")
         font.setPointSize(16)
         self.brnch.setFont(font)
         self.brnch.setObjectName("brnch")
         self.atm = QtWidgets.QPushButton(Menu)
         self.atm.setGeometry(QtCore.QRect(30, 180, 221, 51))
         font = QtGui.QFont()
-        font.setFamily("Akrobat")
+        font.setFamily("Calibri Light")
         font.setPointSize(16)
         self.atm.setFont(font)
         self.atm.setObjectName("atm")
         self.chatbot = QtWidgets.QPushButton(Menu)
         self.chatbot.setGeometry(QtCore.QRect(30, 250, 221, 51))
         font = QtGui.QFont()
-        font.setFamily("Akrobat")
+        font.setFamily("Calibri Light")
         font.setPointSize(16)
         self.chatbot.setFont(font)
         self.chatbot.setObjectName("chatbot")
         self.label = QtWidgets.QLabel(Menu)
         self.label.setGeometry(QtCore.QRect(40, 40, 201, 51))
         font = QtGui.QFont()
-        font.setFamily("Akrobat")
+        font.setFamily("Calibri Light")
         font.setPointSize(30)
         font.setBold(False)
         font.setWeight(50)
@@ -117,15 +139,18 @@ class Ui_Menu(object):
         self.toolButton_5.setObjectName("toolButton_5")
 
         self.retranslateUi(Menu)
+        self.brnch.clicked.connect(self.branchl)
+        self.atm.clicked.connect(self.atml)
+        self.chatbot.clicked.connect(self.chatb)
         self.toolButton.clicked.connect(Menu.close)
         QtCore.QMetaObject.connectSlotsByName(Menu)
 
     def retranslateUi(self, Menu):
         _translate = QtCore.QCoreApplication.translate
-        Menu.setWindowTitle(_translate("Menu", "Dialog"))
+        Menu.setWindowTitle(_translate("Menu", "Menu"))
         self.toolButton.setText(_translate("Menu", "..."))
         self.toolButton_2.setText(_translate("Menu", "..."))
-        self.brnch.setText(_translate("Menu", "Branch Locator"))
+        self.brnch.setText(_translate("Menu", "  Branch Locator"))
         self.atm.setText(_translate("Menu", "ATM Locator"))
         self.chatbot.setText(_translate("Menu", "Chatbot"))
         self.label.setText(_translate("Menu", "MENU"))

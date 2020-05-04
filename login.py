@@ -9,6 +9,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from register import*
 from menu import*
+from log import lgn
+
 class Ui_Login(object):
     def regwin(self):
         self.window = QtWidgets.QDialog()
@@ -20,7 +22,21 @@ class Ui_Login(object):
         self.ui=Ui_Menu()
         self.ui.setupM(self.window)
         self.window.show()
+    
+    def log(self):
+        a = self.log1.checkAccount(self.userfield1.text(),self.passfield1.text())
+        if(a=="correct"):
+            self.Login.close()
+            self.menu()
+        elif(a == "incorrect"):
+            self.statuscheck.setText("Password is incorrect")
+        else:
+            self.statuscheck.setText("User does not exist")
+            
+
     def setupL(self, Login):
+        self.log1 = lgn()
+        self.Login=Login
         Login.setObjectName("Login")
         Login.resize(540, 360)
         Login.setMinimumSize(QtCore.QSize(540, 360))
@@ -155,8 +171,7 @@ class Ui_Login(object):
         self.regbutton.setObjectName("regbutton")
 
         self.retranslateUi(Login)
-        self.loginbutton1.clicked.connect(self.menu)
-        self.loginbutton1.clicked.connect(Login.close)
+        self.loginbutton1.clicked.connect(self.log)
         self.toolButton.clicked.connect(Login.close)
         self.regbutton.clicked.connect(self.regwin)
         self.regbutton.clicked.connect(Login.close)
