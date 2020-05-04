@@ -9,12 +9,6 @@ import json
 import pickle
 stemmer = LancasterStemmer()
 
-#Clear function
-if os.name == 'nt':
-    clear = lambda: os.system('cls')
-else:
-    clear = lambda: os.system('clear')
-
 
 #start of data preprocessing
 class preProcessing():
@@ -118,7 +112,6 @@ class botChat():
     def __init__(self):
         self.process = preProcessing()
         self.model = createModel(self.process.getTraining(),self.process.getOutput())
-        clear() #clear screen
     
     def chat(self,inp):
         results = self.model.getModel().predict([bag_of_words(inp, self.process.getWords())])[0] #generates probability from input for each of the tags
@@ -140,7 +133,6 @@ print("You can now talk with the chatbot!\nType exit to stop")
 while True:
     inp = input("\nInput: ")
     if inp.lower() == "exit":
-        clear()
         break
     print(start.chat(inp))
 """
