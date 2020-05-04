@@ -30,6 +30,12 @@ $ import nltk
 $ nltk.download('punkt') 
 $ quit()
 ```
+To run the GUI, install the Pyqt5 using the command:
+
+```
+$ pip install pyqt5
+
+```
 
 
 
