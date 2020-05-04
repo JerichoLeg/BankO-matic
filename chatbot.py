@@ -5,11 +5,19 @@
 # Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
-
+from menu import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow(object):
+class Ui_Chatbot(object):
+    def menu(self):
+        self.window=QtWidgets.QDialog()
+        self.ui=Ui_Menu()
+        self.ui.setupM(self.window)
+        self.window.show()
+        self.MainWindow.close()
+        
     def setupUi(self, MainWindow):
+        self.MainWindow=MainWindow
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(540, 360)
         MainWindow.setMinimumSize(QtCore.QSize(540, 360))
@@ -103,9 +111,11 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
+        self.commandLinkButton.clicked.connect(self.menu)
         self.toolButton.clicked.connect(MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "BankO\'Matic"))
@@ -114,13 +124,15 @@ class Ui_MainWindow(object):
         self.toolButton_2.setText(_translate("MainWindow", "Send"))
         self.commandLinkButton.setText(_translate("MainWindow", "Back to Main Menu"))
 
+
+
 import res_rc
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_Chatbot()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
