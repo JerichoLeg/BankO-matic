@@ -14,8 +14,15 @@ class Ui_MainWindow(object):
         MainWindow.resize(540, 360)
         MainWindow.setMinimumSize(QtCore.QSize(540, 360))
         MainWindow.setMaximumSize(QtCore.QSize(540, 360))
+        font = QtGui.QFont()
+        font.setFamily("Calibri Light")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(3)
+        MainWindow.setFont(font)
         MainWindow.setStyleSheet("*{\n"
-"font-family: Calibri Light;\n"
+"font: 25 8pt \"Calibri Light\";\n"
 "}\n"
 "QMainWindow{\n"
 "border-image:url(:/images/BG.jpg)\n"
@@ -39,15 +46,20 @@ class Ui_MainWindow(object):
         self.toolButton.setObjectName("toolButton")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(40, 300, 371, 31))
-        font = QtGui.QFont()
-        font.setFamily("Calibri Light")
-        self.lineEdit.setFont(font)
-        self.lineEdit.setStyleSheet("background-color: rgb(223, 223, 223);")
+        self.lineEdit.setStyleSheet("background-color: rgb(223, 223, 223);\n"
+"font: 25 8pt \"Calibri Light\";")
         self.lineEdit.setObjectName("lineEdit")
         self.toolButton_2 = QtWidgets.QToolButton(self.centralwidget)
         self.toolButton_2.setGeometry(QtCore.QRect(400, 280, 111, 71))
+        font = QtGui.QFont()
+        font.setFamily("Calibri Light")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(3)
+        self.toolButton_2.setFont(font)
         self.toolButton_2.setStyleSheet("image: url(:/images/button.png);\n"
-"font: 63 12pt \"Calibri Light\";\n"
+"font: 25 12pt \"Calibri Light\";\n"
 "color: rgb(255, 255, 255);")
         self.toolButton_2.setObjectName("toolButton_2")
         self.commandLinkButton = QtWidgets.QCommandLinkButton(self.centralwidget)
@@ -55,7 +67,12 @@ class Ui_MainWindow(object):
         self.commandLinkButton.setMinimumSize(QtCore.QSize(71, 41))
         font = QtGui.QFont()
         font.setFamily("Calibri Light")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(3)
         self.commandLinkButton.setFont(font)
+        self.commandLinkButton.setStyleSheet("font: 25 9pt \"Calibri Light\";")
         self.commandLinkButton.setIconSize(QtCore.QSize(20, 20))
         self.commandLinkButton.setObjectName("commandLinkButton")
         self.listWidget = QtWidgets.QListWidget(self.centralwidget)
@@ -68,6 +85,12 @@ class Ui_MainWindow(object):
         self.label.setStyleSheet("image: url(:/images/Logoo.png);")
         self.label.setText("")
         self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(300, -30, 201, 121))
+        self.label_2.setStyleSheet("image: url(:/images/Logo.png);")
+        self.label_2.setText("")
+        self.label_2.setObjectName("label_2")
+        self.label_2.raise_()
         self.listWidget.raise_()
         self.label.raise_()
         self.toolButton.raise_()
@@ -92,3 +115,13 @@ class Ui_MainWindow(object):
         self.commandLinkButton.setText(_translate("MainWindow", "Back to Main Menu"))
 
 import res_rc
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
+
