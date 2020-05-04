@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(540, 360))
         MainWindow.setMaximumSize(QtCore.QSize(540, 360))
         MainWindow.setStyleSheet("*{\n"
-"font-family: Akrobat;\n"
+"font-family: Calibri Light;\n"
 "}\n"
 "QMainWindow{\n"
 "border-image:url(:/images/BG.jpg)\n"
