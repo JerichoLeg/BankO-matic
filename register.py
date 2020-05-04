@@ -7,12 +7,11 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from login import *
-from menu import *
 from reg import rgr
 
 class Ui_Register(object):
     def loginwin(self):
+        from login import Ui_Login
         self.window = QtWidgets.QDialog()
         self.ui=Ui_Login()
         self.ui.setupL(self.window)
