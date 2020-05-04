@@ -19,7 +19,7 @@ def create():
             i+=1
     except:
         pass
-    map1.save('map.html') #save map
+    map1.save('ATMMap1.html') #save map
 
 """
 #Sample:
