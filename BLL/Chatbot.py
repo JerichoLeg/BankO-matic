@@ -7,7 +7,6 @@ import tensorflow as tf
 import random
 import json
 import pickle
-
 stemmer = LancasterStemmer()
 
 #Clear function
