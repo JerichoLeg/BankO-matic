@@ -1,11 +1,11 @@
 import unittest
-from Login import login
-from Register import register
+from log import lgn
+from reg import rgr
 
-reg = register()
-reg1 = register()
-log = login()
-log1 = login()
+reg = rgr()
+reg1 = rgr()
+log = lgn()
+log1 = lgn()
 
 class TestRegister(unittest.TestCase):
     def test_checkUser(self):

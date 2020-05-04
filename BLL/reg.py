@@ -1,6 +1,6 @@
 import sqlite3
 
-class register:
+class rgr:
     def __init__(self):
         with sqlite3.connect('accounts.db') as self.conn:
             self.cursor = self.conn.cursor()
