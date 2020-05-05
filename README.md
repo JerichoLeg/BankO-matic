@@ -33,7 +33,7 @@ $ quit()
 To run the GUI, install the Pyqt5 using the command:
 
 ```
-$ pip install pyqt5
+$ conda install -c anaconda pyqt
 
 ```
 
