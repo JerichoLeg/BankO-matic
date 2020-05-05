@@ -36,7 +36,10 @@ To run the GUI, install the Pyqt5 using the command:
 $ conda install -c anaconda pyqt
 
 ```
-
+To start the BankOMatic program run the following command in the anaconda environment:
+```
+python main.py
+```
 
 
 
