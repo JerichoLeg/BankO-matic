@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from log import lgn
+from PyQt5 import QtWebEngineWidgets
 
 class Ui_Login(object):
     def regwin(self):
@@ -88,7 +89,7 @@ class Ui_Login(object):
         self.label.setGeometry(QtCore.QRect(40, 10, 191, 51))
         font = QtGui.QFont()
         font.setFamily("Calibri Light")
-        font.setPointSize(30)
+        font.setPointSize(18)
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
@@ -96,7 +97,7 @@ class Ui_Login(object):
         self.label_2.setGeometry(QtCore.QRect(40, 40, 191, 51))
         font = QtGui.QFont()
         font.setFamily("Calibri Light")
-        font.setPointSize(15)
+        font.setPointSize(10)
         self.label_2.setFont(font)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
