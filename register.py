@@ -96,7 +96,7 @@ class Ui_Register(object):
         self.label.setGeometry(QtCore.QRect(70, 10, 191, 51))
         font = QtGui.QFont()
         font.setFamily("Calibri Light")
-        font.setPointSize(22)
+        font.setPointSize(15)
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
@@ -148,7 +148,7 @@ class Ui_Register(object):
         self.PWCheck.setGeometry(QtCore.QRect(40, 270, 241, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri Light")
-        font.setPointSize(10)
+        font.setPointSize(8)
         self.PWCheck.setFont(font)
         self.PWCheck.setStyleSheet("QLabel{\n"
 "color: red;\n"
