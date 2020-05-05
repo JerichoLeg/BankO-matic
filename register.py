@@ -11,7 +11,7 @@ from reg import rgr
 
 class Ui_Register(object):
     def loginwin(self):
-        from login import Ui_Login
+        from main import Ui_Login
         self.window = QtWidgets.QDialog()
         self.ui=Ui_Login()
         self.ui.setupL(self.window)
@@ -148,7 +148,7 @@ class Ui_Register(object):
         self.PWCheck.setGeometry(QtCore.QRect(40, 270, 241, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri Light")
-        font.setPointSize(8)
+        font.setPointSize(6)
         self.PWCheck.setFont(font)
         self.PWCheck.setStyleSheet("QLabel{\n"
 "color: red;\n"
