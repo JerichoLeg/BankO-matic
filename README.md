@@ -3,7 +3,7 @@
 
 # BankO-matic   
 
-BankOmatic is a banking bot project built using artificial algorithms that analyzes user's queries and understand user's message. The system is designed for bank use where users can ask any bank related questions like branch locations, atm locations, how to open bank accounts, and bank operating hours. There is no specific format for users to ask questions. The built in artificial intelligence system understands users requirements and provides suitable answers to the users.
+BankOmatic is a banking bot project built using artificial algorithms that analyze a user's queries and understand a user's message. The system is designed for bank use wherein users can ask  bank-related questions, such as branch locations, ATN locations, the process of opening bank accounts, and bank operating hours. There is no specific format for users to ask questions. The built-in artificial intelligence system understands users requirements and provides suitable answers to the users.
 
 ### Installation 
 A conda environment with python version 3.6 is needed to run these commands: <br/>
