@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'branchLocOp2.ui'
+# Form implementation generated from reading ui file 'branchLocOp1.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.2
 #
@@ -8,22 +8,34 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5 import QtWebEngineWidgets
 
 class Ui_Window1(object):
+    def BranchL(self):
+        from BranchL import Ui_BranchL
+        self.window=QtWidgets.QMainWindow()
+        self.ui=Ui_BranchL()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+        
     def setupUi(self, Window1):
-        Window1.setObjectName("Branch Locator")
+        from BranchLocator1 import create 
+        create()
+        self.Window1=Window1
+        Window1.setObjectName("Window1")
         Window1.resize(540, 360)
         Window1.setMinimumSize(QtCore.QSize(540, 360))
         Window1.setMaximumSize(QtCore.QSize(540, 360))
+        Window1.setMouseTracking(True)
         Window1.setStyleSheet("*{\n"
-"font-family: Akrobat;\n"
+"font-family: Calibri Light;\n"
 "}\n"
 "QMainWindow{\n"
 "border-image:url(:/images/BG.jpg)\n"
 "}\n"
 "QCommandLinkButton{\n"
-"font-family: Akrobat;\n"
+"font-family: Calibri Light;\n"
 "font-size: 12px;\n"
 "}\n"
 "QCommandLinkButton:hover{\n"
@@ -31,7 +43,7 @@ class Ui_Window1(object):
 "border-radius: 10px;\n"
 "}\n"
 "QLabel{\n"
-"font-family: Akrobat;\n"
+"font-family: Calibri Light;\n"
 "font-size: 22px;\n"
 "}\n"
 "QToolButton{\n"
@@ -62,28 +74,28 @@ class Ui_Window1(object):
         self.centralwidget = QtWidgets.QWidget(Window1)
         self.centralwidget.setObjectName("centralwidget")
         self.closeIcon = QtWidgets.QToolButton(self.centralwidget)
-        self.closeIcon.setGeometry(QtCore.QRect(510, 10, 21, 21))
+        self.closeIcon.setGeometry(QtCore.QRect(500, 10, 31, 31))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/images/icons8-close-window-96.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.closeIcon.setIcon(icon)
         self.closeIcon.setIconSize(QtCore.QSize(50, 50))
         self.closeIcon.setObjectName("closeIcon")
         self.displayText = QtWidgets.QLabel(self.centralwidget)
-        self.displayText.setGeometry(QtCore.QRect(200, 70, 141, 21))
+        self.displayText.setGeometry(QtCore.QRect(180, 60, 171, 21))
         self.displayText.setAlignment(QtCore.Qt.AlignCenter)
         self.displayText.setWordWrap(False)
         self.displayText.setIndent(0)
         self.displayText.setObjectName("displayText")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(170, -30, 201, 151))
+        self.label.setGeometry(QtCore.QRect(170, -40, 201, 151))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Logo.png"))
+        self.label.setPixmap(QtGui.QPixmap(":/images/Logo.png"))
         self.label.setScaledContents(True)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setWordWrap(False)
         self.label.setObjectName("label")
         self.commandLinkButton = QtWidgets.QCommandLinkButton(self.centralwidget)
-        self.commandLinkButton.setGeometry(QtCore.QRect(10, 10, 121, 31))
+        self.commandLinkButton.setGeometry(QtCore.QRect(10, 10, 61, 31))
         self.commandLinkButton.setMouseTracking(True)
         self.commandLinkButton.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.commandLinkButton.setAutoFillBackground(False)
@@ -92,8 +104,8 @@ class Ui_Window1(object):
         self.commandLinkButton.setDescription("")
         self.commandLinkButton.setObjectName("commandLinkButton")
         self.webEngineView = QtWebEngineWidgets.QWebEngineView(self.centralwidget)
-        self.webEngineView.setGeometry(QtCore.QRect(100, 100, 351, 221))
-        self.webEngineView.setUrl(QtCore.QUrl("file:///map.html"))
+        self.webEngineView.setGeometry(QtCore.QRect(10, 90, 521, 261))
+        self.webEngineView.setProperty("url", QtCore.QUrl("file:///BranchMap1.html"))
         self.webEngineView.setObjectName("webEngineView")
         self.label.raise_()
         self.closeIcon.raise_()
@@ -101,11 +113,10 @@ class Ui_Window1(object):
         self.commandLinkButton.raise_()
         self.webEngineView.raise_()
         Window1.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(Window1)
-        self.statusbar.setObjectName("statusbar")
-        Window1.setStatusBar(self.statusbar)
 
         self.retranslateUi(Window1)
+        self.commandLinkButton.clicked.connect(self.BranchL)
+        self.commandLinkButton.clicked.connect(Window1.close)
         self.closeIcon.clicked.connect(Window1.close)
         QtCore.QMetaObject.connectSlotsByName(Window1)
 
@@ -114,10 +125,10 @@ class Ui_Window1(object):
         Window1.setWindowTitle(_translate("Window1", "Branch Locator"))
         self.closeIcon.setText(_translate("Window1", "..."))
         self.displayText.setText(_translate("Window1", "Branch Locator"))
-        self.commandLinkButton.setText(_translate("Window1", "Back to Main Menu"))
-from PyQt5 import QtWebEngineWidgets
-import res_rc
+        self.commandLinkButton.setText(_translate("Window1", "Back "))
 
+import res_rc
+#from PyQt5 import QtWebEngineWidgets
 
 if __name__ == "__main__":
     import sys
