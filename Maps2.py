@@ -3,13 +3,15 @@ import sqlite3
 import math
 from geopandas.tools import geocode
 
-class startLocation():
+class startLocation:
     def __init__(self):
         #Fetch all information from branch
-        with sqlite3.connect('ATMLocations.db') as conn:
+        with sqlite3.connect('Locations.db') as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM ATM")
-        self.data = cursor.fetchall()
+            cursor.execute("SELECT * FROM Branch")
+        self.data = cursor.fetchall()#Fetch all information from branch
+        map1 = folium.Map(location=[14.589896,120.982292],zoom_start = 12,tiles = 'Stamen Terrain') #generate Map centered around the city
+        map1.save('ATMMap2.html')
         self.name = ""
         self.long = ""
         self.lat = ""
@@ -49,7 +51,7 @@ class startLocation():
         i = 0
         for a in self.num:
             try:
-                folium.Marker(location=[self.data[a][6],self.data[a][7]],
+                folium.Marker(location=[self.data[a][5],self.data[a][6]],
                               popup="<strong>%s ATM</strong><br>Open time: %s - %s</br>\n[%s,%s]"%(self.data[a][0],self.data[a][2],self.data[a][3],self.data[a][6],self.data[a][7]),
                               tooltip = '%s ATM'%self.data[a][0],
                               icon = folium.Icon(color='red')).add_to(map1) #create markers for nearest locations
