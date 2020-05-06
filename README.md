@@ -1,4 +1,4 @@
-<img src="https://github.com/JerichoLeg/BankOmatic/blob/RDRegular/Logo.jpg" align="right" alt="" width="300"/> 
+<img src="https://github.com/JerichoLeg/BankOmatic/blob/RDRegular/UI/bnkmat.png" align="right" alt="" width="300"/> 
 <br/>
 
 # BankO-matic   
