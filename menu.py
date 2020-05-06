@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Menu(object):
     def chatb(self):
-        from chatbot import Ui_Chatbot
+        from BotChatG import Ui_Chatbot
         self.window = QtWidgets.QMainWindow()
         self.ui=Ui_Chatbot()
         self.ui.setupUi(self.window)
@@ -19,12 +19,13 @@ class Ui_Menu(object):
         self.Menu.close()
 
     def branchl(self):
-        from branchLocMain importBranchL
+        from BranchL import Ui_BranchL
         self.window = QtWidgets.QMainWindow()
         self.ui=Ui_BranchL()
         self.ui.setupUi(self.window)
         self.window.show()
         self.Menu.close()
+        
     def atml(self):
         from atmLocMain import Ui_atmL
         self.window = QtWidgets.QMainWindow()
