@@ -118,7 +118,7 @@ class botChat():
         results_index = numpy.argmax(results) #finds the index of greatest value in the list
         tag = self.process.getLabels()[results_index] #returns tag from the index given before
         
-        if results[results_index] >0.7:
+        if results[results_index] >0.9:
             for tg in self.process.getData()["intents"]:
                 if tg['tag'] == tag:
                     responses = tg['responses'] #get responses from tag
