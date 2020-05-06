@@ -26,15 +26,15 @@ class Ui_SecondWindow(object):
             a = self.branch2.checkLocation(self.enterLocation.text())
             if (a=="Location Found"):
                 self.branch2.createMap()
-                self.enterLocation.setPlaceholderText("Location Found")
+                self.enterLocation.setPlaceholderText("LocationFound")
                 self.enterLocation.clear()
         
             elif (a=="TooFar"):
-                self.enterLocation.setPlaceholderText("Too Far")
+                self.enterLocation.setPlaceholderText("TooFar")
                 self.enterLocation.clear()
                 
             elif (a=="LocationNotFound"):
-                self.enterLocation.setPlaceholderText("Location Not Found")
+                self.enterLocation.setPlaceholderText("LocationNotFound")
                 self.enterLocation.clear()
 
     def setupUi(self, SecondWindow):
@@ -149,7 +149,7 @@ class Ui_SecondWindow(object):
         _translate = QtCore.QCoreApplication.translate
         SecondWindow.setWindowTitle(_translate("SecondWindow", "ATM Locator"))
         self.toolButton.setText(_translate("SecondWindow", "..."))
-        self.enterLocation.setPlaceholderText(_translate("SecondWindow", "               Enter your location"))
+        self.enterLocation.setPlaceholderText(_translate("SecondWindow", "Enter your location"))
         self.commandLinkButton.setText(_translate("SecondWindow", "Back"))
         self.label.setText(_translate("SecondWindow", "ATM Locator"))
         self.searchIcon.setText(_translate("SecondWindow", "..."))
