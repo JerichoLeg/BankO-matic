@@ -16,7 +16,7 @@
 		 "responses": ["15% is our standard interest rate","Interest rate for loans is 15%"]
 		},
 		{"tag": "register",
-		 "patterns": ["web","online","create account","creation","account","create","make"],
+		 "patterns": ["web","online","create account","creation","account","create","make","open"],
 		 "responses": ["Once you have an account in the bank, you can register an account online"]
 		},
 		{"tag": "Create Account",
