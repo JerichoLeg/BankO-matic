@@ -2,7 +2,7 @@ import folium
 import sqlite3
 import math
 from geopandas.tools import geocode
-with sqlite3.connect('ATMLocations.db') as conn:
+with sqlite3.connect('Locations.db') as conn:
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM ATM")
 
