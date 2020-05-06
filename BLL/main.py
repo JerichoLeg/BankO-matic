@@ -9,6 +9,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from log import lgn
 from PyQt5 import QtWebEngineWidgets
+from Chatbot import botChat
+import os
+
+#Clear function
+if os.name == 'nt':
+    clear = lambda: os.system('cls')
+else:
+    clear = lambda: os.system('clear')
 
 class Ui_Login(object):
     def regwin(self):
@@ -17,6 +25,7 @@ class Ui_Login(object):
         self.ui=Ui_Register()
         self.ui.setupR(self.window)
         self.window.show()
+        
     def menu(self):
         from menu import Ui_Menu
         self.window =QtWidgets.QDialog()
@@ -37,6 +46,8 @@ class Ui_Login(object):
 
     def setupL(self, Login):
         self.log1 = lgn()
+        cb = botChat()
+        clear()
         self.Login=Login
         Login.setObjectName("Login")
         Login.resize(540, 360)
