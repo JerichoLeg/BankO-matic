@@ -27,7 +27,7 @@ class Ui_Menu(object):
         self.Menu.close()
         
     def atml(self):
-        from atmLocMain import Ui_atmL
+        from atmLocMain import Ui_MainWindow
         self.window = QtWidgets.QMainWindow()
         self.ui=Ui_atmL()
         self.ui.setupUi(self.window)
