@@ -26,6 +26,7 @@ class Ui_SecondWindow(object):
             a = self.branch2.checkLocation(self.enterLocation.text())
             if (a=="LocationFound"):
                 self.branch2.createMap()
+                self.webEngineView.setProperty("url", QtCore.QUrl("file:///ATMMap2.html"))
                 self.enterLocation.setPlaceholderText("LocationFound")
                 self.enterLocation.clear()
         
