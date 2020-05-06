@@ -51,7 +51,7 @@ class startLocation:
         i = 0
         for a in self.num:
             try:
-                folium.Marker(location=[self.data[a][5],self.data[a][6]],
+                folium.Marker(location=[self.data[a][6],self.data[a][7]],
                               popup="<strong>%s ATM</strong><br>Open time: %s - %s</br>\n[%s,%s]"%(self.data[a][0],self.data[a][2],self.data[a][3],self.data[a][6],self.data[a][7]),
                               tooltip = '%s ATM'%self.data[a][0],
                               icon = folium.Icon(color='red')).add_to(map1) #create markers for nearest locations
