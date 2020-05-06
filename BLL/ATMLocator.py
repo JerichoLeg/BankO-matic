@@ -2,7 +2,7 @@ import folium
 import sqlite3
 
 def create():
-    with sqlite3.connect('ATMLocations.db') as conn:
+    with sqlite3.connect('Locations.db') as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM ATM")
 
