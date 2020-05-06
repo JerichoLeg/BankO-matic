@@ -24,7 +24,7 @@ class Ui_SecondWindow(object):
             pass
         else:
             a = self.branch2.checkLocation(self.enterLocation.text())
-            if (a=="Location Found"):
+            if (a=="LocationFound"):
                 self.branch2.createMap()
                 self.enterLocation.setPlaceholderText("LocationFound")
                 self.enterLocation.clear()
