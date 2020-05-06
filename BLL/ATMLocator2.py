@@ -8,7 +8,7 @@ class startLocation:
         #Fetch all information from branch
         with sqlite3.connect('Locations.db') as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM Branch")
+            cursor.execute("SELECT * FROM ATM")
         self.data = cursor.fetchall()#Fetch all information from branch
         map1 = folium.Map(location=[14.589896,120.982292],zoom_start = 12,tiles = 'Stamen Terrain') #generate Map centered around the city
         map1.save('ATMMap2.html')
