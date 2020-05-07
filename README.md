@@ -17,8 +17,7 @@ $ pip install tensorflow==1.14
 $ pip install folium 
 $ pip install geopy
 $ conda install geopandas
-$ pip uninstall h5py
-$ pip install h5py 
+$ pip isntall --upgrade h5py
 ```
 open Python using the command:
 ```
